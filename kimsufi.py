@@ -1,6 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 Find the Kimsufi servers availability.
 
@@ -19,63 +18,24 @@ Examples:
   kimsufi.py KS-1 --mail
 """
 
-import sys
+import json
+import os
 import smtplib
 
 import requests
-import json
-import os
-
 from docopt import docopt
 
 VERSION = "1.0"
 
-API_URL = "https://ws.ovh.com/dedicated/r2/ws.dispatcher/getAvailability2"
-REFERENCES = {
-    "150sk10": "KS-1",
-    "150sk20": "KS-2",
-    "150sk21": "KS-2",
-    "150sk22": "KS-2 SSD",
-    "150sk30": "KS-3",
-    "150sk31": "KS-3",
-    "150sk40": "KS-4",
-    "150sk41": "KS-4",
-    "150sk42": "KS-4",
-    "150sk50": "KS-5",
-    "150sk60": "KS-6",
-
-    "141game1": "GAME-1",
-    "141game2": "GAME-2",
-    "141game3": "GAME-3",
-
-    "142sys4": "SYS-IP-1",
-    "142sys5": "SYS-IP-2",
-    "142sys8": "SYS-IP-4",
-    "142sys6": "SYS-IP-5",
-    "142sys10": "SYS-IP-5S",
-    "142sys7": "SYS-IP-6",
-    "142sys9": "SYS-IP-6S",
-
-    "143sys13": "E3-SSD-1",
-    "143sys10": "E3-SSD-2",
-    "143sys11": "E3-SSD-3",
-    "143sys12": "E3-SSD-4",
-
-    "143sys4": "E3-SAT-1",
-    "143sys1": "E3-SAT-2",
-    "143sys2": "E3-SAT-3",
-    "143sys3": "E3-SAT-4",
-
-    "141bk1": "BK-8T",
-    "141bk2": "BK-24T"
-}
-
-ZONES = {'gra': 'Gravelines',
-         'sbg': 'Strasbourg',
-         'rbx': 'Roubaix',
-         'bhs': 'Beauharnois'}
+API_URL = "https://www.ovh.com/engine/api/dedicated/server/availabilities?country=de"
 
 CURRENT_PATH = os.path.dirname(__file__)
+
+with open('references.json', 'r') as ifile:
+    REFERENCES = {x['hardware']: x['model'] for x in json.load(ifile)}
+
+with open('zones.json', 'r') as ifile:
+    ZONES = {x['zone']: x['location'] for x in json.load(ifile)}
 
 
 def get_zone_name(zone):
@@ -91,13 +51,13 @@ def get_servers(models):
     """Get the servers from the OVH API."""
 
     r = requests.get(API_URL)
-    response = r.json()['answer']['availability']
+    response = r.json()
 
     search = REFERENCES
     if models:
         search = {k: v for k, v in REFERENCES.items() if v in models}
 
-    return [k for k in response if any(r == k['reference'] for r in search)]
+    return [k for k in response if any(r == k['hardware'] for r in search)]
 
 
 def get_ref(name):
@@ -120,19 +80,12 @@ def send_mail(output, total):
     except IOError:
         print('Rename config.json.sample to config.json and edit it')
         return False
-
     """Send a mail to <mail_to>."""
 
     subject = "{0} server{1} {2} available on Kimsufi".format(
-        total,
-        "s"[total <= 1:],
-        ["is", "are"][total > 1]
-    )
+        total, "s" [total <= 1:], ["is", "are"][total > 1])
     headers = "From: {}\r\nTo: {}\r\nSubject: {}\r\n\r\n".format(
-        mail_from,
-        mail_to,
-        subject
-    )
+        mail_from, mail_to, subject)
 
     try:
         server = smtplib.SMTP(mail_host, mail_port)
@@ -167,21 +120,19 @@ if __name__ == '__main__':
     output = ""
 
     for k in kim:
-        output += "\n{}\n".format(REFERENCES[k['reference']])
-        output += "{}\n".format("=" * len(REFERENCES[k['reference']]))
+        output += "\n{}\n".format(REFERENCES[k['hardware']])
+        output += "{}\n".format("=" * len(REFERENCES[k['hardware']]))
 
-        for z in k['zones']:
+        for z in k['datacenters']:
             invalids = ['unavailable', 'unknown']
             availability = z['availability']
-            if not availability in invalids:
+            if availability not in invalids:
                 total += 1
-            output += '{} : {}\n'.format(get_zone_name(z['zone']), availability)
+            output += '{} : {}\n'.format(
+                get_zone_name(z['datacenter']), availability)
 
     output += "\n=======\nRESULT : {0} server{1} {2} available on Kimsufi\n=======\n".format(
-        total,
-        "s"[total <= 1:],
-        ["is", "are"][total > 1]
-    )
+        total, "s" [total <= 1:], ["is", "are"][total > 1])
 
     if total != 0:
         if arguments['--mail']:

@@ -1,0 +1,202 @@
+[
+  {
+    "hardware": "1801sk12",
+    "model": "KS-1"
+  },
+  {
+    "hardware": "1801sk13",
+    "model": "KS-2"
+  },
+  {
+    "hardware": "1801sk14",
+    "model": "KS-3"
+  },
+  {
+    "hardware": "1801sk15",
+    "model": "KS-4"
+  },
+  {
+    "hardware": "1801sk16",
+    "model": "KS-5"
+  },
+  {
+    "hardware": "1801sk17",
+    "model": "KS-6"
+  },
+  {
+    "hardware": "1801sk18",
+    "model": "KS-7"
+  },
+  {
+    "hardware": "1801sk19",
+    "model": "KS-8"
+  },
+  {
+    "hardware": "1801sk20",
+    "model": "KS-9"
+  },
+  {
+    "hardware": "1801sk21",
+    "model": "KS-10"
+  },
+  {
+    "hardware": "1801sk22",
+    "model": "KS-11"
+  },
+  {
+    "hardware": "1801sk23",
+    "model": "KS-12"
+  },
+  {
+    "hardware": "1804sk12",
+    "model": "KS-1"
+  },
+  {
+    "hardware": "1804sk13",
+    "model": "KS-2"
+  },
+  {
+    "hardware": "1804sk14",
+    "model": "KS-3"
+  },
+  {
+    "hardware": "1804sk15",
+    "model": "KS-4"
+  },
+  {
+    "hardware": "1804sk16",
+    "model": "KS-5"
+  },
+  {
+    "hardware": "1804sk17",
+    "model": "KS-6"
+  },
+  {
+    "hardware": "1804sk18",
+    "model": "KS-7"
+  },
+  {
+    "hardware": "1804sk181",
+    "model": "KS-7"
+  },
+  {
+    "hardware": "1804sk19",
+    "model": "KS-8"
+  },
+  {
+    "hardware": "1804sk20",
+    "model": "KS-9"
+  },
+  {
+    "hardware": "1804sk21",
+    "model": "KS-10"
+  },
+  {
+    "hardware": "1804sk22",
+    "model": "KS-11"
+  },
+  {
+    "hardware": "1804sk23",
+    "model": "KS-12"
+  },
+  {
+    "hardware": "1801cask12",
+    "model": "KS-1"
+  },
+  {
+    "hardware": "1801cask13",
+    "model": "KS-2"
+  },
+  {
+    "hardware": "1801cask14",
+    "model": "KS-3"
+  },
+  {
+    "hardware": "1801cask15",
+    "model": "KS-4"
+  },
+  {
+    "hardware": "1801cask16",
+    "model": "KS-5"
+  },
+  {
+    "hardware": "1801cask17",
+    "model": "KS-6"
+  },
+  {
+    "hardware": "1801cask18",
+    "model": "KS-7"
+  },
+  {
+    "hardware": "1801cask19",
+    "model": "KS-8"
+  },
+  {
+    "hardware": "1801cask20",
+    "model": "KS-9"
+  },
+  {
+    "hardware": "1801cask21",
+    "model": "KS-10"
+  },
+  {
+    "hardware": "1801cask22",
+    "model": "KS-11"
+  },
+  {
+    "hardware": "1801cask23",
+    "model": "KS-12"
+  },
+  {
+    "hardware": "1804cask12",
+    "model": "KS-1"
+  },
+  {
+    "hardware": "1804cask13",
+    "model": "KS-2"
+  },
+  {
+    "hardware": "1804cask14",
+    "model": "KS-3"
+  },
+  {
+    "hardware": "1804cask15",
+    "model": "KS-4"
+  },
+  {
+    "hardware": "1804cask16",
+    "model": "KS-5"
+  },
+  {
+    "hardware": "1804cask17",
+    "model": "KS-6"
+  },
+  {
+    "hardware": "1804cask18",
+    "model": "KS-7"
+  },
+  {
+    "hardware": "1804cask181",
+    "model": "KS-7"
+  },
+  {
+    "hardware": "1804cask19",
+    "model": "KS-8"
+  },
+  {
+    "hardware": "1804cask20",
+    "model": "KS-9"
+  },
+  {
+    "hardware": "1804cask21",
+    "model": "KS-10"
+  },
+  {
+    "hardware": "1804cask22",
+    "model": "KS-11"
+  },
+  {
+    "hardware": "1804cask23",
+    "model": "KS-12"
+  }
+]

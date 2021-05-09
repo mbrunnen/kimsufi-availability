@@ -1,0 +1,42 @@
+[
+  {
+    "zone": "bhs",
+    "location": "Beauharnois"
+  },
+  {
+    "zone": "fra",
+    "location": "Frankfurt"
+  },
+  {
+    "zone": "gra",
+    "location": "Gravelines"
+  },
+  {
+    "zone": "lon",
+    "location": "London"
+  },
+  {
+    "zone": "rbx",
+    "location": "Roubaix"
+  },
+  {
+    "zone": "sbg",
+    "location": "Strasbourg"
+  },
+  {
+    "zone": "sgp",
+    "location": "Singapore"
+  },
+  {
+    "zone": "syd",
+    "location": "Sydney"
+  },
+  {
+    "zone": "vin",
+    "location": "Vint Hill"
+  },
+  {
+    "zone": "waw",
+    "location": "Warsaw"
+  }
+]
