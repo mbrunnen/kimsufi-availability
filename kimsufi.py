@@ -29,6 +29,8 @@ VERSION = "1.0"
 
 API_URL = "https://www.ovh.com/engine/api/dedicated/server/availabilities?country=de"
 
+BASE_ORDER_URL = "https://www.kimsufi.com/en/order/kimsufi.xml?reference="
+
 CURRENT_PATH = os.path.dirname(__file__)
 
 with open('references.json', 'r') as ifile:
@@ -122,6 +124,8 @@ if __name__ == '__main__':
     for k in kim:
         output += "\n{}\n".format(REFERENCES[k['hardware']])
         output += "{}\n".format("=" * len(REFERENCES[k['hardware']]))
+        output += "hardware : {}\n".format(k['hardware'])
+        output += "order : {}{}\n".format(BASE_ORDER_URL, k['hardware'])
 
         for z in k['datacenters']:
             invalids = ['unavailable', 'unknown']
