@@ -138,9 +138,6 @@ if __name__ == '__main__':
     output += "\n=======\nRESULT : {0} server{1} {2} available on Kimsufi\n=======\n".format(
         total, "s" [total <= 1:], ["is", "are"][total > 1])
 
-    if total != 0:
-        if arguments['--mail']:
-            print(output)
-            send_mail(output, total)
-        else:
-            print(output)
+    print(output)
+    if total != 0 and arguments['--mail']:
+        send_mail(output, total)
